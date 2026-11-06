@@ -1,0 +1,9 @@
+{
+  "address": "0xd3f3e482e065Af680862a673b42E1EA44bFDeA2D",
+  "network": "BOT Chain Testnet",
+  "chainId": 968,
+  "deployedAt": "2026-11-06T12:47:58.850Z",
+  "txHash": "0x698aa6b8661dc66dbe60ec4eaad1fe9231bc688f3c070f70377cf486a2f62c0b",
+  "rpcUrl": "https://rpc.bohr.life",
+  "blockExplorer": "https://scan.bohr.life"
+}
