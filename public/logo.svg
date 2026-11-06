@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Background Radial Gradient -->
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#0f1b33" />
+      <stop offset="60%" stop-color="#080d1a" />
+      <stop offset="100%" stop-color="#04060c" />
+    </radialGradient>
+
+    <!-- Cyan Glow Filter -->
+    <filter id="neonGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur1" />
+      <feGaussianBlur stdDeviation="16" result="blur2" />
+      <feMerge>
+        <feMergeNode in="blur2" />
+        <feMergeNode in="blur1" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Intense Center Glow -->
+    <filter id="coreGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- Linear Gradients -->
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5DF9FF" />
+      <stop offset="50%" stop-color="#00F0FF" />
+      <stop offset="100%" stop-color="#0D9488" />
+    </linearGradient>
+
+    <linearGradient id="shieldFill" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#142442" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#0b1324" stop-opacity="0.95" />
+    </linearGradient>
+
+    <linearGradient id="timerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00F0FF" />
+      <stop offset="100%" stop-color="#10B981" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="512" height="512" rx="100" fill="url(#bgGrad)" />
+
+  <!-- Outer Ambient Glow Ring -->
+  <circle cx="256" cy="256" r="210" fill="none" stroke="#00F0FF" stroke-opacity="0.08" stroke-width="1.5" />
+  <circle cx="256" cy="256" r="185" fill="none" stroke="#00F0FF" stroke-opacity="0.15" stroke-width="2" stroke-dasharray="12 16" />
+
+  <!-- Time-Expiry Circular Dial / Clock Track -->
+  <circle cx="256" cy="256" r="155" fill="none" stroke="#1e293b" stroke-width="6" />
+  <!-- Active Arc (Time Remaining Segment) with Neon Glow -->
+  <circle
+    cx="256"
+    cy="256"
+    r="155"
+    fill="none"
+    stroke="url(#timerGrad)"
+    stroke-width="7"
+    stroke-linecap="round"
+    stroke-dasharray="720 980"
+    transform="rotate(-90 256 256)"
+    filter="url(#neonGlow)"
+  />
+
+  <!-- Four Radial Tick Marks -->
+  <circle cx="256" cy="101" r="3.5" fill="#5DF9FF" />
+  <circle cx="411" cy="256" r="3" fill="#00F0FF" opacity="0.6" />
+  <circle cx="256" cy="411" r="3" fill="#10B981" opacity="0.6" />
+  <circle cx="101" cy="256" r="3" fill="#0D9488" opacity="0.4" />
+
+  <!-- Central Cybernetic Shield Body -->
+  <path
+    d="M 256 145 
+       C 310 145 350 165 350 165 
+       C 350 255 315 325 256 365 
+       C 197 325 162 255 162 165 
+       C 162 165 202 145 256 145 Z"
+    fill="url(#shieldFill)"
+    stroke="url(#cyanGrad)"
+    stroke-width="5"
+    stroke-linejoin="round"
+    filter="url(#neonGlow)"
+  />
+
+  <!-- Inner Shield Inset Trim -->
+  <path
+    d="M 256 168 
+       C 298 168 330 184 330 184 
+       C 330 252 302 308 256 342 
+       C 210 308 182 252 182 184 
+       C 182 184 214 168 256 168 Z"
+    fill="none"
+    stroke="#00F0FF"
+    stroke-opacity="0.35"
+    stroke-width="2"
+  />
+
+  <!-- Clock & Keyhole Core Symbol (Time-Bounded Access) -->
+  <g filter="url(#coreGlow)">
+    <!-- Outer Keyhole Head / Timer Hub -->
+    <circle cx="256" cy="225" r="26" fill="#070c18" stroke="url(#cyanGrad)" stroke-width="4" />
+    
+    <!-- Clock Hands (Time Iconography) -->
+    <!-- Hour Hand -->
+    <line x1="256" y1="225" x2="256" y2="210" stroke="#5DF9FF" stroke-width="3.5" stroke-linecap="round" />
+    <!-- Minute Hand -->
+    <line x1="256" y1="225" x2="269" y2="225" stroke="#00F0FF" stroke-width="3" stroke-linecap="round" />
+    <!-- Center Pivot Pin -->
+    <circle cx="256" cy="225" r="3" fill="#ffffff" />
+
+    <!-- Keyhole Stem pointing downward into vault latch -->
+    <path
+      d="M 250 244 L 246 288 C 246 293 250 296 256 296 C 262 296 266 293 266 288 L 262 244 Z"
+      fill="url(#cyanGrad)"
+    />
+  </g>
+
+  <!-- Horizon Tech Data Nodes / Sparks -->
+  <circle cx="256" cy="120" r="2.5" fill="#5DF9FF" filter="url(#coreGlow)" />
+  <circle cx="256" cy="390" r="3" fill="#10B981" filter="url(#coreGlow)" />
+</svg>
